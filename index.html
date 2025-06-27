@@ -7,404 +7,623 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" href="images/drone_logo.png" />
     <link rel="stylesheet" type="text/css" href="stylesheet.css" />
-    <!-- Overlay CSS for image/video hover -->
     <style>
-      .one {
-        position: relative;
-        display: inline-block;
-        width: 160px;
+      /* Basic Reset & Body Styling */
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
       }
-      .one img {
-        display: block;
+
+      /* Main Container */
+      .container {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        box-sizing: border-box; /* Include padding in element's total width and height */
+      }
+
+      /* Profile Section */
+      .profile-section {
+        display: flex;
+        flex-direction: column; /* Stacks items vertically on small screens */
+        align-items: center; /* Centers items horizontally */
+        gap: 20px; /* Space between photo and text */
+        padding-bottom: 20px;
+        text-align: center; /* Center text on mobile */
+      }
+
+      .profile-photo-container {
+        width: 100%;
+        max-width: 200px; /* Limit photo size */
+        margin-bottom: 10px; /* Space between photo and name on mobile */
+      }
+
+      .profile-photo-container img {
         width: 100%;
         height: auto;
+        border-radius: 8px; /* Slightly rounded corners for the image */
+        object-fit: cover;
       }
-      .one .two {
-        position: absolute;
-        top: 0;
-        left: 0;
+
+      .profile-info {
+        flex-grow: 1; /* Allows text to take available space */
+      }
+
+      .name {
+        font-size: 2em;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .profile-info p {
+        margin-bottom: 10px;
+      }
+
+      .social-links img {
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+
+      .social-links a {
+        text-decoration: none;
+        color: #007bff;
+        margin-right: 10px;
+      }
+
+      /* Section Headings */
+      h2 {
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        font-size: 1.8em;
+        color: #333;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+      }
+
+      /* Experience and Project Items */
+      .section-item {
+        display: flex;
+        flex-direction: column; /* Stack image/video above text on mobile */
+        background-color: #fafafa;
+        margin-bottom: 20px;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        align-items: center; /* Center content horizontally on mobile */
+        text-align: center; /* Center text on mobile */
+      }
+
+      .item-media {
         width: 100%;
-        height: 100%;
-        opacity: 1;
+        max-width: 250px; /* Limit media width */
+        margin-bottom: 15px; /* Space between media and text on mobile */
+      }
+
+      .item-media img,
+      .item-media video {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        border-radius: 4px;
+      }
+
+      .item-content {
+        flex-grow: 1;
+        width: 100%; /* Ensure content takes full width */
+      }
+
+      .item-content h3 {
+        margin-top: 0;
+        margin-bottom: 5px;
+      }
+
+      .item-content ul {
+        list-style: none; /* Remove default bullet points */
+        padding: 0;
+        text-align: left; /* Align list items to the left */
+        margin-top: 10px;
+      }
+
+      .item-content ul li {
+        margin-bottom: 5px;
+      }
+
+      .papertitle {
+        font-weight: bold;
+        font-size: 1.1em;
+      }
+
+      /* Education Section */
+      .education-section {
+        display: flex;
+        flex-direction: column; /* Stack vertically on mobile */
+        gap: 20px;
+        padding: 20px;
+        text-align: center; /* Center text */
+      }
+
+      .education-item {
+        background-color: #fafafa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        flex: 1; /* Allows items to grow and shrink */
+      }
+
+      .education-item img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 10px;
+      }
+
+      /* Footer */
+      .footer {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 0.9em;
+        color: gray;
+        padding-bottom: 20px;
+      }
+
+      /* Media Queries for Desktop Layout */
+      @media (min-width: 768px) {
+        .profile-section {
+          flex-direction: row-reverse; /* Photo on right, text on left */
+          text-align: left; /* Align text to left on desktop */
+          align-items: flex-start; /* Align items to the top */
+        }
+
+        .profile-photo-container {
+          margin-bottom: 0; /* Remove bottom margin on desktop */
+          margin-left: 20px; /* Space between photo and text */
+        }
+
+        .section-item {
+          flex-direction: row; /* Horizontal layout for media and text */
+          text-align: left; /* Align text to left */
+          align-items: flex-start; /* Align items to the top */
+        }
+
+        .item-media {
+          width: 25%; /* Original width */
+          max-width: none; /* Remove max-width constraint */
+          margin-right: 20px; /* Space between media and text */
+          margin-bottom: 0; /* Remove bottom margin on desktop */
+        }
+
+        .item-content ul {
+          text-align: left; /* Ensure list items are left-aligned */
+        }
+
+        .education-section {
+          flex-direction: row; /* Horizontal layout for education items */
+        }
       }
     </style>
   </head>
   <body>
-    <table style="width:100%; max-width:800px; margin:0 auto; border-spacing:0;">
-      <tbody>
-        <tr>
-          <td>
-            <table style="width:100%; margin:0 auto; border-spacing:0;">
-              <tbody>
-                <tr>
-                  <td style="padding:2.5%; width:63%; vertical-align:middle;">
-                    <p class="name">Saurabh Kashid</p>
-                    <p>
-                      I am an Autonomy Engineer with a strong background in
-                      developing and implementing advanced algorithms for
-                      robotics. Currently, I work at
-                      <a href="https://www.joulea.com/">Joulea</a> in Atlanta,
-                      where I focus on enhancing drone navigation through
-                      real-time Sensor-fusion, LiDAR obstacle detection, state machine design
-                      for mission control and path planning. My expertise spans
-                      across sensor fusion, SLAM localization, and the
-                      integration of multiple SDKs to create efficient,
-                      real-world autonomous systems.
-                    </p>
-                    <p>
-                      I hold a Master's in Robotics Engineering from
-                      <a href="https://www.wpi.edu/academics/departments/robotics-engineering">Worcester Polytechnic Institute</a>
-                      and a Bachelor's in Mechanical Engineering from Savitribai
-                      Phule Pune University. Throughout my career, I’ve tackled
-                      various projects, from implementing Camera calibration, Active vision to
-                      designing trajectory controllers for drones and robots.
-                    </p>
-                    <p>
-                      Outside of work, I enjoy hiking, gymming, and playing
-                      various sports. These activities help me stay active and
-                      balanced while fueling my passion for exploring new
-                      challenges.
-                    </p>
-                    <p>
-                      <a href="mailto:saurabhkashid157@gmail.com">
-                        <img src="images/social-media/mail.png" width="16" alt="Email" /> Email
-                      </a>
-                      &nbsp;/&nbsp;
-                      <a href="data/Saurabh_Resume.pdf">
-                        <img src="images/social-media/resume.png" width="16" alt="CV" /> CV
-                      </a>
-                      &nbsp;/&nbsp;
-                      <a href="https://github.com/saurabhkashid">
-                        <img src="images/social-media/github.png" width="16" alt="GitHub" /> Github
-                      </a>
-                      &nbsp;/&nbsp;
-                      <a href="https://www.linkedin.com/in/saurabh-kashid/">
-                        <img src="images/social-media/linkedin.png" width="16" alt="LinkedIn" /> LinkedIn
-                      </a>
-                    </p>
-                  </td>
-                  <td style="padding:2.5%; width:40%; max-width:40%;">
-                    <a href="images/JonBarron.jpg">
-                      <img
-                        src="images/saurabh.jpg"
-                        alt="profile photo"
-                        style="width:100%; object-fit:cover;"
-                      />
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+    <div class="container">
+      <div class="profile-section">
+        <div class="profile-photo-container">
+          <a href="images/JonBarron.jpg">
+            <img src="images/saurabh.jpg" alt="profile photo" />
+          </a>
+        </div>
+        <div class="profile-info">
+          <p class="name">Saurabh Kashid</p>
+          <p>
+            I am an Autonomy Engineer with a strong background in developing and
+            implementing advanced algorithms for robotics. Currently, I work at
+            <a href="https://www.joulea.com/">Joulea</a> in Atlanta, where I
+            focus on enhancing drone navigation through real-time
+            Sensor-fusion, LiDAR obstacle detection, state machine design for
+            mission control and path planning. My expertise spans across sensor
+            fusion, SLAM localization, and the integration of multiple SDKs to
+            create efficient, real-world autonomous systems.
+          </p>
+          <p>
+            I hold a Master's in Robotics Engineering from
+            <a href="https://www.wpi.edu/academics/departments/robotics-engineering"
+              >Worcester Polytechnic Institute</a
+            >
+            and a Bachelor's in Mechanical Engineering from Savitribai Phule
+            Pune University. Throughout my career, I’ve tackled various
+            projects, from implementing Camera calibration, Active vision to
+            designing trajectory controllers for drones and robots.
+          </p>
+          <p>
+            Outside of work, I enjoy hiking, gymming, and playing various
+            sports. These activities help me stay active and balanced while
+            fueling my passion for exploring new challenges.
+          </p>
+          <p class="social-links">
+            <a href="mailto:saurabhkashid157@gmail.com">
+              <img src="images/social-media/mail.png" width="16" alt="Email" />
+              Email
+            </a>
+            &nbsp;/&nbsp;
+            <a href="data/Saurabh_Resume.pdf">
+              <img src="images/social-media/resume.png" width="16" alt="CV" />
+              CV
+            </a>
+            &nbsp;/&nbsp;
+            <a href="https://github.com/saurabhkashid">
+              <img
+                src="images/social-media/github.png"
+                width="16"
+                alt="GitHub"
+              />
+              Github
+            </a>
+            &nbsp;/&nbsp;
+            <a href="https://www.linkedin.com/in/saurabh-kashid/">
+              <img
+                src="images/social-media/linkedin.png"
+                width="16"
+                alt="LinkedIn"
+              />
+              LinkedIn
+            </a>
+          </p>
+        </div>
+      </div>
 
-            <!-- Work Experience -->
-            <h2>Work Experience</h2>
+      ---
 
-            <!-- Joulea -->
-            <table style="width:100%; margin:0 auto; border-spacing:0;">
-              <tbody>
-                <tr bgcolor="#fafafa">
-                  <td style="padding:20px; width:25%; vertical-align:middle;">
-                    <div class="one">
-                      <img src="images/joulea_logo.jpeg" alt="Joulea Logo" />
-                    </div>
-                  </td>
-                  <td style="padding:20px; width:75%; vertical-align:middle;">
-                    <h3>Joulea, Atlanta, GA</h3>
-                    <p><strong>Autonomy Engineer</strong> (Feb 2022 – Present)</p>
-                    <ul>
-                      <li>Developed a degeneracy detection system in LiDAR SLAM for smooth shifting between Gps and Lidar slam. to ensure robust localization.</li>
-                      <li>Developed and implemented real-time LiDAR obstacle detection on NVIDIA-Orin for safer drone navigation.</li>
-                      <li>Coded and integrated GICP algorithm for precise GPS and LiDAR Calibration.</li>
-                      <li>Designed and implemented a state machine for drone operation, improving mission control and decision-making processes.</li>
-                      <li>Fused LIO, VO, and barometer readings in an EKF for enhanced state estimation.</li>
-                      <li>Defined sensor-aware waypoints for efficient coverage path planning and implemented Patchwork++ for ground segmentation.</li>
-                      <li>Led the integration of multiple SDKs, guiding contractors in app development and performing user acceptance testing and code reviews.</li>
-                      <li>Investigated and implemented loop closure with GTSAM pose graph optimization techniques.</li>
-                    </ul>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+      <h2>Work Experience</h2>
 
-            <!-- Projects -->
-            <h2>Projects</h2>
+      <div class="section-item">
+        <div class="item-media">
+          <img src="images/joulea_logo.jpeg" alt="Joulea Logo" />
+        </div>
+        <div class="item-content">
+          <h3>Joulea, Atlanta, GA</h3>
+          <p><strong>Autonomy Engineer</strong> (Feb 2022 – Present)</p>
+          <ul>
+            <li>
+              Developed a degeneracy detection system in LiDAR SLAM for smooth
+              shifting between Gps and Lidar slam. to ensure robust
+              localization.
+            </li>
+            <li>
+              Developed and implemented real-time LiDAR obstacle detection on
+              NVIDIA-Orin for safer drone navigation.
+            </li>
+            <li>
+              Coded and integrated GICP algorithm for precise GPS and LiDAR
+              Calibration.
+            </li>
+            <li>
+              Designed and implemented a state machine for drone operation,
+              improving mission control and decision-making processes.
+            </li>
+            <li>
+              Fused LIO, VO, and barometer readings in an EKF for enhanced
+              state estimation.
+            </li>
+            <li>
+              Defined sensor-aware waypoints for efficient coverage path
+              planning and implemented Patchwork++ for ground segmentation.
+            </li>
+            <li>
+              Led the integration of multiple SDKs, guiding contractors in app
+              development and performing user acceptance testing and code
+              reviews.
+            </li>
+            <li>
+              Investigated and implemented loop closure with GTSAM pose graph
+              optimization techniques.
+            </li>
+          </ul>
+        </div>
+      </div>
 
-            <!-- 6D Pose Detection --> 
-            <!-- <table style="width:100%; margin:0 auto; border-spacing:0;">
-              <tbody>
-                <tr bgcolor="#fafafa">
-                  <td style="padding:20px; width:25%; vertical-align:middle;">
-                    <video 
-                      width="100%" 
-                      muted 
-                      autoplay 
-                      loop 
-                      playsinline 
-                      poster="images\images\machine_learning\" 
-                      style="display:block; object-fit:cover;"
-                    >
-                      <source src="images\images\W&B Chart 10_20_2024, 12_47_19 AM.mp4" type="video/mp4" />
-                      <img src="images\images\machine_learning\" alt="Dense Fusion" style="width:100%; display:block;" />
-                    </video>
-                  </td>
-                  <td style="padding:20px; width:75%; vertical-align:middle;">
-                    <span class="papertitle">6D Pose Detection using DenseFusion on Linemode Dataset</span><br>
-                    <a href="">Updated Soon</a>
-                    <p>Applied state-of-the-art DenseFusion techniques on 6 classes out of 15 of Linemod to estimate 6D object poses.</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table> -->
+      ---
 
-            <!-- Camera Calibration -->
-            <table style="width:100%; margin:0 auto; border-spacing:0;">
-              <tbody>
-                <tr bgcolor="#fafafa">
-                  <td style="padding:20px; width:25%; vertical-align:middle;">
-                    <video 
-                      width="100%" 
-                      muted 
-                      autoplay 
-                      loop 
-                      playsinline 
-                      poster="images\images\computer_vision\Camera_calibration_crop.png" 
-                      style="display:block; object-fit:cover;"
-                    >
-                      <!-- <source src="images\images\W&B Chart 10_20_2024, 12_47_19 AM.mp4" type="video/mp4" /> -->
-                      <img src="images\images\computer_vision\Camera_calibration_crop.png" alt="Pb edge detection" style="width:100%; display:block;" />
-                    </video>
-                  </td>
-                  <td style="padding:20px; width:75%; vertical-align:middle;">
-                    <span class="papertitle">Auto Camera Calibration</span><br>
-                    <a href="https://github.com/saurabhkashid/RBE549-auto_calibration.git">project page</a>
-                    <p>Implemented Camera calibration method by Zhengyou Zhang (<a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr98-71.pdf" target="_blank" rel="noopener">A flexible new technique for camera calibration.</a>) </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+      <h2>Projects</h2>
 
-            <!-- Panorama Stitching -->
-            <table style="width:100%; margin:0 auto; border-spacing:0;">
-              <tbody>
-                <tr bgcolor="#fafafa">
-                  <td style="padding:20px; width:25%; vertical-align:middle;">
-                    <video 
-                      width="100%" 
-                      muted 
-                      autoplay 
-                      loop 
-                      playsinline 
-                      poster="images\images\computer_vision\mypano.png" 
-                      style="display:block; object-fit:cover;"
-                    >
-                      <!-- <source src="images\images\W&B Chart 10_20_2024, 12_47_19 AM.mp4" type="video/mp4" /> -->
-                      <img src="images\images\computer_vision\mypano.png" alt="Pb edge detection" style="width:100%; display:block;" />
-                    </video>
-                  </td>
-                  <td style="padding:20px; width:75%; vertical-align:middle;">
-                    <span class="papertitle">Panorama Stitching</span><br>
-                    <a href="https://github.com/saurabhkashid/RBE549-my_auto_pano.git">project page</a>
-                    <p>Build high-quality panoramas from a sequence of images. </p>
-                    <p>Key steps include Harris+ANMS corner detection, ratio-test matching + RANSAC homography, cumulative warping into a common frame, and ROI-limited Poisson blending.
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+      <div class="section-item">
+        <div class="item-media">
+          <video
+            width="100%"
+            muted
+            autoplay
+            loop
+            playsinline
+            poster="images\images\computer_vision\Camera_calibration_crop.png"
+          >
+            <source
+              src="images\images\computer_vision\Camera_calibration_crop.mp4"
+              type="video/mp4"
+            />
+            <img
+              src="images\images\computer_vision\Camera_calibration_crop.png"
+              alt="Camera Calibration"
+            />
+          </video>
+        </div>
+        <div class="item-content">
+          <span class="papertitle">Auto Camera Calibration</span><br />
+          <a href="https://github.com/saurabhkashid/RBE549-auto_calibration.git"
+            >project page</a
+          >
+          <p>
+            Implemented Camera calibration method by Zhengyou Zhang (<a
+              href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr98-71.pdf"
+              target="_blank"
+              rel="noopener"
+              >A flexible new technique for camera calibration.</a
+            >)
+          </p>
+        </div>
+      </div>
 
-            <!-- Edge Detection -->
-            <table style="width:100%; margin:0 auto; border-spacing:0;">
-              <tbody>
-                <tr bgcolor="#fafafa">
-                  <td style="padding:20px; width:25%; vertical-align:middle;">
-                    <video 
-                      width="100%" 
-                      muted 
-                      autoplay 
-                      loop 
-                      playsinline 
-                      poster="images\images\computer_vision\pb_result_img_0.png" 
-                      style="display:block; object-fit:cover;"
-                    >
-                      <!-- <source src="images\images\W&B Chart 10_20_2024, 12_47_19 AM.mp4" type="video/mp4" /> -->
-                      <img src="images\images\computer_vision\pb_result_img_0.png" alt="Pb edge detection" style="width:100%; display:block;" />
-                    </video>
-                  </td>
-                  <td style="padding:20px; width:75%; vertical-align:middle;">
-                    <span class="papertitle">Probabilistic Edge Detection</span><br>
-                    <a href="https://github.com/saurabhkashid/RBE549-probalistic_edge_detection.git">project page</a>
-                    <p>Applied advanced Probability of Boundary (Pb) edge detection pipeline inspired by the BSDS500 benchmark.</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+      <div class="section-item">
+        <div class="item-media">
+          <video
+            width="100%"
+            muted
+            autoplay
+            loop
+            playsinline
+            poster="images\images\computer_vision\mypano.png"
+          >
+            <source
+              src="images\images\computer_vision\mypano.mp4"
+              type="video/mp4"
+            />
+            <img
+              src="images\images\computer_vision\mypano.png"
+              alt="Panorama Stitching"
+            />
+          </video>
+        </div>
+        <div class="item-content">
+          <span class="papertitle">Panorama Stitching</span><br />
+          <a href="https://github.com/saurabhkashid/RBE549-my_auto_pano.git"
+            >project page</a
+          >
+          <p>Build high-quality panoramas from a sequence of images.</p>
+          <p>
+            Key steps include Harris+ANMS corner detection, ratio-test matching
+            + RANSAC homography, cumulative warping into a common frame, and
+            ROI-limited Poisson blending.
+          </p>
+        </div>
+      </div>
 
-            <!-- Machine Unlearning -->
-            <table style="width:100%; margin:0 auto; border-spacing:0;">
-              <tbody>
-                <tr bgcolor="#fafafa">
-                  <td style="padding:20px; width:25%; vertical-align:middle;">
-                    <video 
-                      width="100%" 
-                      muted 
-                      autoplay 
-                      loop 
-                      playsinline 
-                      poster="images\images\machine_learning\W&B Chart 10_20_2024, 12_47_19 AM.png" 
-                      style="display:block; object-fit:cover;"
-                    >
-                      <!-- <source src="images\images\W&B Chart 10_20_2024, 12_47_19 AM.mp4" type="video/mp4" /> -->
-                      <img src="images\images\machine_learning\W&B Chart 10_20_2024, 12_47_19 AM.png" alt="Quadrotor Demo" style="width:100%; display:block;" />
-                    </video>
-                  </td>
-                  <td style="padding:20px; width:75%; vertical-align:middle;">
-                    <span class="papertitle">Machine Unlearning with Selective Synaptic Damping (SSD)</span><br>
-                    <a href="https://github.com/saurabhkashid/machine_unlearning">project page</a>
-                    <p>Implemented SSD on ResNet-18 and Vision Transformer models for selective forgetting on CIFAR-10 and CIFAR-100 datasets, achieving improved post-unlearning accuracy.</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+      <div class="section-item">
+        <div class="item-media">
+          <video
+            width="100%"
+            muted
+            autoplay
+            loop
+            playsinline
+            poster="images\images\computer_vision\pb_result_img_0.png"
+          >
+            <source
+              src="images\images\computer_vision\pb_result_img_0.mp4"
+              type="video/mp4"
+            />
+            <img
+              src="images\images\computer_vision\pb_result_img_0.png"
+              alt="Probabilistic Edge Detection"
+            />
+          </video>
+        </div>
+        <div class="item-content">
+          <span class="papertitle">Probabilistic Edge Detection</span><br />
+          <a
+            href="https://github.com/saurabhkashid/RBE549-probalistic_edge_detection.git"
+            >project page</a
+          >
+          <p>
+            Applied advanced Probability of Boundary (Pb) edge detection
+            pipeline inspired by the BSDS500 benchmark.
+          </p>
+        </div>
+      </div>
 
-            <!-- Quadrotor Trajectory -->
-            <table style="width:100%; margin:0 auto; border-spacing:0;">
-              <tbody>
-                <tr bgcolor="#fafafa">
-                  <td style="padding:20px; width:25%; vertical-align:middle;">
-                    <video 
-                      width="100%" 
-                      muted 
-                      autoplay 
-                      loop 
-                      playsinline 
-                      poster="images/video/controls/rrp_bot.png" 
-                      style="display:block; object-fit:cover;"
-                    >
-                      <source src="images\video\controls\sliding_mode_control.mp4" type="video/mp4" />
-                      <img src="images\images\controls\sliding_mode_ctrl.png" alt="Quadrotor Demo" style="width:100%; display:block;" />
-                    </video>
-                  </td>
-                  <td style="padding:20px; width:75%; vertical-align:middle;">
-                    <span class="papertitle">Quad-rotor Trajectory Tracking</span><br>
-                    <a href="https://github.com/saurabhkashid/sliding_mode_control_for_UAV">project page</a>
-                    <p>Designed a Sliding Mode controller to track quintic trajectories for a quadrotor and tested in Gazebo.</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+      <div class="section-item">
+        <div class="item-media">
+          <video
+            width="100%"
+            muted
+            autoplay
+            loop
+            playsinline
+            poster="images\images\machine_learning\W&B Chart 10_20_2024, 12_47_19 AM.png"
+          >
+            <source
+              src="images\images\machine_learning\W&B Chart 10_20_2024, 12_47_19 AM.mp4"
+              type="video/mp4"
+            />
+            <img
+              src="images\images\machine_learning\W&B Chart 10_20_2024, 12_47_19 AM.png"
+              alt="Machine Unlearning"
+            />
+          </video>
+        </div>
+        <div class="item-content">
+          <span class="papertitle"
+            >Machine Unlearning with Selective Synaptic Damping (SSD)</span
+          ><br />
+          <a href="https://github.com/saurabhkashid/machine_unlearning"
+            >project page</a
+          >
+          <p>
+            Implemented SSD on ResNet-18 and Vision Transformer models for
+            selective forgetting on CIFAR-10 and CIFAR-100 datasets, achieving
+            improved post-unlearning accuracy.
+          </p>
+        </div>
+      </div>
 
-            <!-- RRbot PID Control -->
-            <table style="width:100%; margin:0 auto; border-spacing:0;">
-              <tbody>
-                <tr bgcolor="#fafafa">
-                  <td style="padding:20px; width:25%; vertical-align:middle;">
-                    <video 
-                      width="100%" 
-                      muted 
-                      autoplay 
-                      loop 
-                      playsinline 
-                      poster="images/video/controls/rrp_bot.png" 
-                      style="display:block; object-fit:cover;"
-                    >
-                      <source src="images/video/controls/Gazebo (Ubuntu) 2025-02-14 23-05-53.mp4" type="video/mp4" />
-                      <img src="images/video/controls/rrp_bot.png" alt="RRbot Demo" style="width:100%; display:block;" />
-                    </video>
-                  </td>
-                  <td style="padding:20px; width:75%; vertical-align:middle;">
-                    <span class="papertitle">RRbot PID Control</span><br>
-                    <a href="https://github.com/saurabhkashid/RRP_PID_control.git">project page</a>
-                    <p>Used PID controller to control the RRP_bot using the inverse kinematics and simulated in Gazebo.</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+      <div class="section-item">
+        <div class="item-media">
+          <video
+            width="100%"
+            muted
+            autoplay
+            loop
+            playsinline
+            poster="images/video/controls/rrp_bot.png"
+          >
+            <source
+              src="images\video\controls\sliding_mode_control.mp4"
+              type="video/mp4"
+            />
+            <img
+              src="images\images\controls\sliding_mode_ctrl.png"
+              alt="Quadrotor Demo"
+            />
+          </video>
+        </div>
+        <div class="item-content">
+          <span class="papertitle">Quad-rotor Trajectory Tracking</span><br />
+          <a href="https://github.com/saurabhkashid/sliding_mode_control_for_UAV"
+            >project page</a
+          >
+          <p>
+            Designed a Sliding Mode controller to track quintic trajectories for
+            a quadrotor and tested in Gazebo.
+          </p>
+        </div>
+      </div>
 
-            <!-- CBS Path Finding -->
-            <table style="width:100%; margin:0 auto; border-spacing:0;">
-              <tbody>
-                <tr bgcolor="#fafafa">
-                  <td style="padding:20px; width:25%; vertical-align:middle;">
-                    <video 
-                      width="100%" 
-                      muted 
-                      autoplay 
-                      loop 
-                      playsinline 
-                      poster="images\video\path_planning\CBS_output.gif" 
-                      style="display:block; object-fit:cover;"
-                    >
-                      <source src="images\video\path_planning\CBS_output.gif" type="video/mp4" />
-                      <img src="images\video\path_planning\CBS_output.gif" alt="CBS Demo" style="width:100%; display:block;" />
-                    </video>
-                  </td>
-                  <td style="padding:20px; width:75%; vertical-align:middle;">
-                    <span class="papertitle">Multi-agent Path Finding for Warehouse Robots</span><br>
-                    <a href="https://github.com/saurabhkashid/multi_agent_path_finding.git">project page</a>
-                    <p>Created a 2D warehouse environment and applied Conflict-Based Search with Space–Time A*; compared Priority-Based, CBS, and CBS with Disjoint strategies.</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+      <div class="section-item">
+        <div class="item-media">
+          <video
+            width="100%"
+            muted
+            autoplay
+            loop
+            playsinline
+            poster="images/video/controls/rrp_bot.png"
+          >
+            <source
+              src="images/video/controls/Gazebo (Ubuntu) 2025-02-14 23-05-53.mp4"
+              type="video/mp4"
+            />
+            <img src="images/video/controls/rrp_bot.png" alt="RRbot Demo" />
+          </video>
+        </div>
+        <div class="item-content">
+          <span class="papertitle">RRbot PID Control</span><br />
+          <a href="https://github.com/saurabhkashid/RRP_PID_control.git"
+            >project page</a
+          >
+          <p>
+            Used PID controller to control the RRP_bot using the inverse
+            kinematics and simulated in Gazebo.
+          </p>
+        </div>
+      </div>
 
-            <!-- A* Visualization -->
-            <table style="width:100%; margin:0 auto; border-spacing:0;">
-              <tbody>
-                <tr bgcolor="#fafafa">
-                  <td style="padding:20px; width:25%; vertical-align:middle;">
-                    <video 
-                      width="100%" 
-                      muted 
-                      autoplay 
-                      loop 
-                      playsinline 
-                      poster="images\video\path_planning\a_star_animation.gif" 
-                      style="display:block; object-fit:cover;"
-                    >
-                      <source src="images\video\path_planning\a_star_animation.gif" type="video/mp4" />
-                      <img src="images\images\path_planning\astar.PNG" alt="A_star Demo" style="width:100%; display:block;" />
-                    </video>
-                  </td>
-                  <td style="padding:20px; width:75%; vertical-align:middle;">
-                    <span class="papertitle">Path Planning Algorithms</span><br>
-                    <a href="https://github.com/saurabhkashid/graph_search_algorithms">project page</a>
-                    <p>Visualized DFS, BFS, Dijkstra, and A* in a 2D grid with customizable obstacles.</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+      <div class="section-item">
+        <div class="item-media">
+          <video
+            width="100%"
+            muted
+            autoplay
+            loop
+            playsinline
+            poster="images\video\path_planning\CBS_output.gif"
+          >
+            <source
+              src="images\video\path_planning\CBS_output.gif"
+              type="video/mp4"
+            />
+            <img
+              src="images\video\path_planning\CBS_output.gif"
+              alt="CBS Demo"
+            />
+          </video>
+        </div>
+        <div class="item-content">
+          <span class="papertitle"
+            >Multi-agent Path Finding for Warehouse Robots</span
+          ><br />
+          <a href="https://github.com/saurabhkashid/multi_agent_path_finding.git"
+            >project page</a
+          >
+          <p>
+            Created a 2D warehouse environment and applied Conflict-Based Search
+            with Space–Time A*; compared Priority-Based, CBS, and CBS with
+            Disjoint strategies.
+          </p>
+        </div>
+      </div>
 
-            <br /><br />
-            <!-- Education -->
-            <h2>Education</h2>
-            <table style="width:100%; margin:0 auto; border-spacing:0;">
-              <tbody>
-                <tr>
-                  <td style="padding:20px; width:50%; text-align:center; vertical-align:top;">
-                    <img src="images/education/wpi.png" alt="WPI" style="width:160px; height:160px; border-radius:50%;" />
-                    <div style="padding-top:10px;">
-                      <strong>Master of Science, Robotics Engineering</strong><br />
-                      Worcester Polytechnic Institute<br />
-                      <span style="color:gray;">Jan 2022 – Dec 2023</span>
-                    </div>
-                  </td>
-                  <td style="padding:20px; width:50%; text-align:center; vertical-align:top;">
-                    <img src="images/education/savitribai phule pune university.png" alt="Savitribai Phule Pune University" style="width:160px; height:160px; border-radius:50%;" />
-                    <div style="padding-top:10px;">
-                      <strong>Bachelor of Engineering, Mechanical Engineering</strong><br />
-                      Savitribai Phule Pune University<br />
-                      <span style="color:gray;">Aug 2017 – May 2020</span>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <p style="text-align:center; margin-top:40px; font-size:0.9em; color:gray;">
-              Source code forked from <a href="https://jonbarron.info/">Jon Barron's</a> website.
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+      <div class="section-item">
+        <div class="item-media">
+          <video
+            width="100%"
+            muted
+            autoplay
+            loop
+            playsinline
+            poster="images\video\path_planning\a_star_animation.gif"
+          >
+            <source
+              src="images\video\path_planning\a_star_animation.gif"
+              type="video/mp4"
+            />
+            <img
+              src="images\images\path_planning\astar.PNG"
+              alt="A_star Demo"
+            />
+          </video>
+        </div>
+        <div class="item-content">
+          <span class="papertitle">Path Planning Algorithms</span><br />
+          <a href="https://github.com/saurabhkashid/graph_search_algorithms"
+            >project page</a
+          >
+          <p>
+            Visualized DFS, BFS, Dijkstra, and A* in a 2D grid with
+            customizable obstacles.
+          </p>
+        </div>
+      </div>
+
+      ---
+
+      <h2>Education</h2>
+      <div class="education-section">
+        <div class="education-item">
+          <img src="images/education/wpi.png" alt="WPI" />
+          <div>
+            <strong>Master of Science, Robotics Engineering</strong><br />
+            Worcester Polytechnic Institute<br />
+            <span style="color: gray;">Jan 2022 – Dec 2023</span>
+          </div>
+        </div>
+        <div class="education-item">
+          <img
+            src="images/education/savitribai phule pune university.png"
+            alt="Savitribai Phule Pune University"
+          />
+          <div>
+            <strong>Bachelor of Engineering, Mechanical Engineering</strong><br />
+            Savitribai Phule Pune University<br />
+            <span style="color: gray;">Aug 2017 – May 2020</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="footer">
+        Source code forked from
+        <a href="https://jonbarron.info/">Jon Barron's</a> website.
+      </p>
+    </div>
   </body>
 </html>
