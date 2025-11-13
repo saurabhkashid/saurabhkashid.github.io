@@ -12,14 +12,14 @@
       body {
         margin: 0;
         font-family: Arial, sans-serif;
-        line-height: 1.6;
+        line-height: 1.7;
         color: #333;
       }
 
       /* Main Container */
       .container {
         width: 100%;
-        max-width: 800px;
+        max-width: 900px;
         margin: 0 auto;
         padding: 20px;
         box-sizing: border-box; /* Include padding in element's total width and height */
@@ -219,29 +219,24 @@
         <div class="profile-info">
           <p class="name">Saurabh Kashid</p>
           <p>
-            I am an Autonomy Engineer with a strong background in developing and
-            implementing advanced algorithms for robotics. Currently, I work at
-            <a href="https://www.joulea.com/">Joulea</a> in Atlanta, where I
-            focus on enhancing drone navigation through real-time
-            Sensor-fusion, LiDAR obstacle detection, state machine design for
-            mission control and path planning. My expertise spans across sensor
-            fusion, SLAM localization, and the integration of multiple SDKs to
-            create efficient, real-world autonomous systems.
+            I am an Autonomy Engineer focused on building robust, real-world robotic systems. At
+            <a href="https://www.joulea.com/">Joulea</a> in Atlanta, I design and deploy autonomy
+            software for drone-based building inspection – including real-time sensor fusion,
+            LiDAR-based obstacle detection, mission state machines, and path planning for safe,
+            efficient coverage.
           </p>
           <p>
-            I hold a Master's in Robotics Engineering from
-            <a href="https://www.wpi.edu/academics/departments/robotics-engineering"
-              >Worcester Polytechnic Institute</a
-            >
-            and a Bachelor's in Mechanical Engineering from Savitribai Phule
-            Pune University. Throughout my career, I’ve tackled various
-            projects, from implementing Camera calibration, Active vision to
-            designing trajectory controllers for drones and robots.
+            I hold a Master’s in Robotics Engineering from
+            <a href="https://www.wpi.edu/academics/departments/robotics-engineering">
+              Worcester Polytechnic Institute
+            </a>
+            and a Bachelor’s in Mechanical Engineering from Savitribai Phule Pune University.
+            My work spans camera calibration, active vision, SLAM localization, and trajectory
+            control for drones and manipulators.
           </p>
           <p>
-            Outside of work, I enjoy hiking, gymming, and playing various
-            sports. These activities help me stay active and balanced while
-            fueling my passion for exploring new challenges.
+            Outside of work, I enjoy hiking, lifting, and playing sports they keep me active,
+            reset my brain, and give me fresh perspectives for tackling hard technical problems.
           </p>
           <p class="social-links">
             <a href="mailto:saurabhkashid157@gmail.com">
@@ -275,7 +270,7 @@
         </div>
       </div>
 
-      ---
+      <hr />
 
       <h2>Work Experience</h2>
 
@@ -285,47 +280,58 @@
         </div>
         <div class="item-content">
           <h3>Joulea, Atlanta, GA</h3>
-          <p><strong>Autonomy Engineer</strong> (Feb 2022 – Present)</p>
+          <p><strong>Autonomy Engineer</strong> (Feb 2023 – Present)</p>
           <ul>
             <li>
-              Developed a degeneracy detection system in LiDAR SLAM for smooth
-              shifting between Gps and Lidar slam. to ensure robust
-              localization.
+              Designed a degeneracy-aware LiDAR SLAM pipeline to smoothly switch between GPS and
+              LiDAR-based localization, improving robustness in GPS-denied and low-feature
+              environments.
             </li>
             <li>
-              Developed and implemented real-time LiDAR obstacle detection on
-              NVIDIA-Orin for safer drone navigation.
+              Developing a fast LiDAR camera calibration pipeline (FastCalib-style) to compute 
+              LiDAR RGB extrinsics using plane segmentation, feature correspondences, and robust 
+              optimization, improving accuracy of multi-sensor fusion.
             </li>
             <li>
-              Coded and integrated GICP algorithm for precise GPS and LiDAR
-              Calibration.
+              Built a full camera calibration pipeline using OpenCV for normal and wide-angle 
+              cameras, including automated chessboard detection, sub-pixel corner refinement, 
+              and optimization over radial/tangential distortion parameters for accurate 
+              intrinsic estimation.
             </li>
             <li>
-              Designed and implemented a state machine for drone operation,
-              improving mission control and decision-making processes.
+              Implemented real-time LiDAR obstacle detection on NVIDIA Orin for on-board collision
+              avoidance and safer autonomous flight.
             </li>
             <li>
-              Fused LIO, VO, and barometer readings in an EKF for enhanced
-              state estimation.
+              Developed and integrated a GICP-based alignment module for precise GPS–LiDAR
+              calibration and consistent mapping in ENU coordinates.
             </li>
             <li>
-              Defined sensor-aware waypoints for efficient coverage path
-              planning and implemented Patchwork++ for ground segmentation.
+              Designed and deployed a mission state machine for drone operations, streamlining
+              mission control, failure handling, and operator workload.
             </li>
             <li>
-              Led the integration of multiple SDKs, guiding contractors in app
-              development and performing user acceptance testing and code
-              reviews.
+              Fused LIO, VO, and barometer measurements in an EKF to improve state estimation
+              stability across different flight regimes.
             </li>
             <li>
-              Investigated and implemented loop closure with GTSAM pose graph
-              optimization techniques.
+              Generated sensor-aware waypoints for coverage path planning and used Patchwork++ for
+              robust ground segmentation in cluttered environments.
+            </li>
+            <li>
+              Led integration of multiple vendor SDKs (flight control, navigation, and cloud
+              services), coordinating with contractors, performing code reviews, and running user
+              acceptance tests.
+            </li>
+            <li>
+              Investigated and implemented loop closure using GTSAM-based pose graph optimization to
+              reduce long-term drift in large-scale building scans.
             </li>
           </ul>
         </div>
       </div>
 
-      ---
+      <hr />
 
       <h2>Projects</h2>
 
@@ -337,14 +343,14 @@
             autoplay
             loop
             playsinline
-            poster="images\images\computer_vision\Camera_calibration_crop.png"
+            poster="images/images/computer_vision/Camera_calibration_crop.png"
           >
             <source
-              src="images\images\computer_vision\Camera_calibration_crop.mp4"
+              src="images/images/computer_vision/Camera_calibration_crop.mp4"
               type="video/mp4"
             />
             <img
-              src="images\images\computer_vision\Camera_calibration_crop.png"
+              src="images/images/computer_vision/Camera_calibration_crop.png"
               alt="Camera Calibration"
             />
           </video>
@@ -355,12 +361,15 @@
             >project page</a
           >
           <p>
-            Implemented Camera calibration method by Zhengyou Zhang (<a
+            Implemented Zhang’s camera calibration method
+            (<a
               href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr98-71.pdf"
               target="_blank"
               rel="noopener"
-              >A flexible new technique for camera calibration.</a
-            >)
+            >
+              “A flexible new technique for camera calibration”
+            </a>)
+            to estimate intrinsics and lens distortion, achieving sub-pixel reprojection error.
           </p>
         </div>
       </div>
@@ -373,14 +382,14 @@
             autoplay
             loop
             playsinline
-            poster="images\images\computer_vision\mypano.png"
+            poster="images/images/computer_vision/mypano.png"
           >
             <source
-              src="images\images\computer_vision\mypano.mp4"
+              src="images/images/computer_vision/mypano.mp4"
               type="video/mp4"
             />
             <img
-              src="images\images\computer_vision\mypano.png"
+              src="images/images/computer_vision/mypano.png"
               alt="Panorama Stitching"
             />
           </video>
@@ -390,11 +399,11 @@
           <a href="https://github.com/saurabhkashid/RBE549-my_auto_pano.git"
             >project page</a
           >
-          <p>Build high-quality panoramas from a sequence of images.</p>
+          <p>Built high-quality panoramas from a sequence of overlapping images.</p>
           <p>
-            Key steps include Harris+ANMS corner detection, ratio-test matching
-            + RANSAC homography, cumulative warping into a common frame, and
-            ROI-limited Poisson blending.
+            Pipeline: Harris + ANMS corner detection, ratio-test feature matching with RANSAC
+            homography estimation, cumulative warping into a common reference frame, and
+            ROI-limited Poisson blending for seamless stitching.
           </p>
         </div>
       </div>
@@ -407,14 +416,14 @@
             autoplay
             loop
             playsinline
-            poster="images\images\computer_vision\pb_result_img_0.png"
+            poster="images/images/computer_vision/pb_result_img_0.png"
           >
             <source
-              src="images\images\computer_vision\pb_result_img_0.mp4"
+              src="images/images/computer_vision/pb_result_img_0.mp4"
               type="video/mp4"
             />
             <img
-              src="images\images\computer_vision\pb_result_img_0.png"
+              src="images/images/computer_vision/pb_result_img_0.png"
               alt="Probabilistic Edge Detection"
             />
           </video>
@@ -426,8 +435,9 @@
             >project page</a
           >
           <p>
-            Applied advanced Probability of Boundary (Pb) edge detection
-            pipeline inspired by the BSDS500 benchmark.
+            Implemented a Probability of Boundary (Pb) edge detection pipeline inspired by the
+            BSDS500 benchmark, combining multiscale gradients and texture cues to produce
+            dense, probabilistic edge maps.
           </p>
         </div>
       </div>
@@ -440,14 +450,14 @@
             autoplay
             loop
             playsinline
-            poster="images\images\machine_learning\W&B Chart 10_20_2024, 12_47_19 AM.png"
+            poster="images/images/machine_learning/W&B Chart 10_20_2024, 12_47_19 AM.png"
           >
             <source
-              src="images\images\machine_learning\W&B Chart 10_20_2024, 12_47_19 AM.mp4"
+              src="images/images/machine_learning/W&B Chart 10_20_2024, 12_47_19 AM.mp4"
               type="video/mp4"
             />
             <img
-              src="images\images\machine_learning\W&B Chart 10_20_2024, 12_47_19 AM.png"
+              src="images/images/machine_learning/W&B Chart 10_20_2024, 12_47_19 AM.png"
               alt="Machine Unlearning"
             />
           </video>
@@ -460,9 +470,8 @@
             >project page</a
           >
           <p>
-            Implemented SSD on ResNet-18 and Vision Transformer models for
-            selective forgetting on CIFAR-10 and CIFAR-100 datasets, achieving
-            improved post-unlearning accuracy.
+            Implemented SSD on ResNet-18 and Vision Transformer models for selective forgetting on
+            CIFAR-10 and CIFAR-100 datasets, achieving improved post-unlearning accuracy.
           </p>
         </div>
       </div>
@@ -475,14 +484,14 @@
             autoplay
             loop
             playsinline
-            poster="images/video/controls/rrp_bot.png"
+            poster="images/images/controls/sliding_mode_ctrl.png"
           >
             <source
-              src="images\video\controls\sliding_mode_control.mp4"
+              src="images/video/controls/sliding_mode_control.mp4"
               type="video/mp4"
             />
             <img
-              src="images\images\controls\sliding_mode_ctrl.png"
+              src="images/images/controls/sliding_mode_ctrl.png"
               alt="Quadrotor Demo"
             />
           </video>
@@ -493,8 +502,8 @@
             >project page</a
           >
           <p>
-            Designed a Sliding Mode controller to track quintic trajectories for
-            a quadrotor and tested in Gazebo.
+            Designed a Sliding Mode Controller for a quadrotor to track smooth quintic
+            trajectories; validated the controller in Gazebo with realistic dynamics.
           </p>
         </div>
       </div>
@@ -522,8 +531,8 @@
             >project page</a
           >
           <p>
-            Used PID controller to control the RRP_bot using the inverse
-            kinematics and simulated in Gazebo.
+            Implemented PID control for an RRP robot arm using inverse kinematics and tested
+            the joint-space tracking performance in Gazebo.
           </p>
         </div>
       </div>
@@ -536,14 +545,14 @@
             autoplay
             loop
             playsinline
-            poster="images\video\path_planning\CBS_output.gif"
+            poster="images/video/path_planning/CBS_output.gif"
           >
             <source
-              src="images\video\path_planning\CBS_output.gif"
+              src="images/video/path_planning/CBS_output.gif"
               type="video/mp4"
             />
             <img
-              src="images\video\path_planning\CBS_output.gif"
+              src="images/video/path_planning/CBS_output.gif"
               alt="CBS Demo"
             />
           </video>
@@ -556,9 +565,9 @@
             >project page</a
           >
           <p>
-            Created a 2D warehouse environment and applied Conflict-Based Search
-            with Space–Time A*; compared Priority-Based, CBS, and CBS with
-            Disjoint strategies.
+            Modeled a 2D warehouse and applied Conflict-Based Search (CBS) with Space–Time A*
+            to coordinate multiple robots; compared Priority-Based planning, CBS, and
+            Disjoint-CBS in terms of conflicts and makespan.
           </p>
         </div>
       </div>
@@ -571,14 +580,14 @@
             autoplay
             loop
             playsinline
-            poster="images\video\path_planning\a_star_animation.gif"
+            poster="images/video/path_planning/a_star_animation.gif"
           >
             <source
-              src="images\video\path_planning\a_star_animation.gif"
+              src="images/video/path_planning/a_star_animation.gif"
               type="video/mp4"
             />
             <img
-              src="images\images\path_planning\astar.PNG"
+              src="images/images/path_planning/astar.PNG"
               alt="A_star Demo"
             />
           </video>
@@ -589,13 +598,13 @@
             >project page</a
           >
           <p>
-            Visualized DFS, BFS, Dijkstra, and A* in a 2D grid with
-            customizable obstacles.
+            Implemented and visualized DFS, BFS, Dijkstra, and A* on a 2D grid with
+            configurable obstacles, highlighting differences in explored nodes and path cost.
           </p>
         </div>
       </div>
 
-      ---
+      <hr />
 
       <h2>Education</h2>
       <div class="education-section">
